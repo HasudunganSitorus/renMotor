@@ -3,11 +3,18 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+
+
+use Exception;
 use Throwable;
+use Illuminate\Support\Arr;
+use illuminate\Http\Response;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 
 class Handler extends ExceptionHandler
 {
-    /**
+     /**
      * A list of the exception types that are not reported.
      *
      * @var array
