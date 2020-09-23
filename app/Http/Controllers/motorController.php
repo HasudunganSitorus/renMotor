@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Resources\ProductResource;
-use App\Product;
+use App\Models\Motor;
+use App\Models\Penyewa;
+use App\Models\Perlengkapan;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class motorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
-        return ProductResource::collection($product);
+        $motors = Motor::all();
+        return view('motors.index', compact('motors'));
     }
 
     /**
@@ -25,8 +25,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        $motor = Motor::all();
+        $penyewas =Penyewa::all();
+        $perlengkapans = Perlengkapan::all();
+        return view('motors.create', compact('motor','penyewas', 'perlengkapans'));
     }
 
     /**
@@ -37,7 +40,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $motors = Motor::all();
+
+        $nama = $request->nama;
+        $noPlat = $request->noPlat;
+        $avatar = $request->avatar;
+        $kondisi = $request->kondisi;
+        $penyewa_id = $request->penyewa_id;
+        $perlengkapan_id = $request->perlengkan_id;
+        
+        $motors->nama = $nama;
+        $motors->noPlat = $noPlat;
+        $motors->avatar = $avatar;
+        $motors->kondisi = $kondisi;
+        $motors->penyewa_id = $penyewa_id;
+        $motor->perlengkapan_id = $perlengkapan_id;
+        $motors->save();
+
+        return redirect()->route('motors.index')->with('notif', 'Data Berhasil di input');
     }
 
     /**

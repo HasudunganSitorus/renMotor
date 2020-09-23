@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('articles', require('./components/Articles.vue').default);
+// Vue.component('product', require('./components/Product.vue').default);
 Vue.component('navbar', require('./components/Navbar.vue').default);
 
 /**
@@ -28,6 +29,14 @@ Vue.component('navbar', require('./components/Navbar.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+/* const app = new Vue({
     el: '#app',
 });
+ */
+
+var angka = 1;
+
+while(angka <= 5){
+    console.log('Hallo ');
+    angka++;
+}

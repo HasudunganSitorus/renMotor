@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoryResource;
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -13,7 +15,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        return CategoryResource::collection(Category::paginate(5));
     }
 
     /**

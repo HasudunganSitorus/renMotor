@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoriesController extends JsonResource
+class MotorResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,9 +14,11 @@ class CategoriesController extends JsonResource
      */
     public function toArray($request)
     {
-        return[
-            'id'    => $this->id,
-            'nama'  => $this->nama
-        ]; 
+        return 
+        [
+            'id' => $this->id,
+            'nama' => $this->nama,
+            'kondisi' => $this->kondisi
+    ];
     }
 }

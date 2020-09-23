@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateOrderanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('orderans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->decimal('durasi', 2, 1)->default(0);
+            $table->decimal('jumlah', 2, 1)->default(0);
+            $table->foreignId('motor_id')->constrained();
+            $table->integer('perlengkapan_id');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -27,6 +31,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('orderan');
     }
 }

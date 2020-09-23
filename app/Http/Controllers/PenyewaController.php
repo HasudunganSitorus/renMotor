@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProductResource;
-use App\Product;
+use App\Http\Resource\PenyewaResource;
+use App\Models\Penyewa;
+use App\Models\Motor;
+use App\Models\Perlengkapan;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+
+class PenyewaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +17,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $product = Product::all();
-        return ProductResource::collection($product);
+    {   
+        $penyewas = Penyewa::all();
+        return view('penyewa.index', compact('penyewas'));
     }
 
     /**

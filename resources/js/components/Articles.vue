@@ -1,17 +1,18 @@
 <template>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    <h1>List Motor</h1>
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-3">
+                <h1 class="my-4">List Motor</h1>
+                <div class="list-group">
+Test
                 </div>
             </div>
-        </div>
-</template>
+            
+            <div class="col-lg-9">
+                <div class="row mt-4">
+                </div>
+            </div>
 
-<script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
-</script>
+        </div>
+    </div>
+</template>
