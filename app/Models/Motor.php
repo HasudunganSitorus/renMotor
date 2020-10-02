@@ -3,24 +3,61 @@
 namespace App\Models;
 
 use App\Models\Penyewa;
-use App\Models\Perlengkapan;
 use App\Models\service;
+use App\Models\Penjadwalan;
+use App\Models\Pemesanan;
+use App\Models\Perbaikan;
+use App\Models\Faktur;
+use App\Models\Perlengkapan;
 use Illuminate\Database\Eloquent\Model;
 
 class Motor extends Model
 {
-    protected $table = 'motors';
-    protected $fillable = ['id','nama', 'noPlat','kondisi','avatar', 'penyewa_id', 'perlengkapan_id'];
+    protected $table = 'motor';
+    protected $fillable = ['id','nama', 'noPlat','kondisi','avatar'];
 
     
-    public function getPenyewa()
+    public function penyewa()
     {
-        return $this->belongsTo(App\Models\Penyewa::class, 'penyewa_id');
+        return $this->belongsToMany(Penyewa::class,'motor_penyewa','motor_id', 'penyewa_id');
     }
 
-    public function getService()
+    public function kondisi()
     {
-        return $this->hasMany(Service::class, 'id');
+        return $this->hasOne('App\Models\Kondisi');
     }
-    
+    public function ulasan()
+    {
+        return $this->hasOne('App\Models\Ulasan', 'id');
+    }
+
+    public function service()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    public function penjadwalan()
+    {
+        return $this->hasMany(Penjadwalan::class, 'id');
+    }
+
+    public function faktur()
+    {
+        return $this->hasMany(faktur::class, 'id');
+    }
+
+    public function perbaikan()
+    {
+        return $this->hasMany(Perbaiakan::class, 'id');
+    }
+
+    public function pemesanan()
+    {
+        return $this->hasMany(Pemesanan::class, 'id');
+    }
+
+    public function perlengkapan()
+    {
+        return $this->hasMany(Perlengkapan::class, 'id');
+    }
 }

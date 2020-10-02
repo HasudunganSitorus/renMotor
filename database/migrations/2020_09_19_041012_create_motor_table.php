@@ -18,8 +18,6 @@ class CreateMotorTable extends Migration
             $table->string('nama');
             $table->string('noPlat');
             $table->text('avatar');
-            $table->string('kondisi');
-            $table->integer('penyewa_id');
             $table->timestamps();
         });
     }

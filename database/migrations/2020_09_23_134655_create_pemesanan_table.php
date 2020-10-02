@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenjadwalanTable extends Migration
+class CreatePemesananTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreatePenjadwalanTable extends Migration
      */
     public function up()
     {
-        Schema::create('penjadwalan', function (Blueprint $table) {
+        Schema::create('pemesanan', function (Blueprint $table) {
             $table->id();
-            $table->integer('motor_id');
+            $table->date('tanggal');
             $table->integer('penyewa_id');
-            $table->char('jamKeluar');
-            $table->char('jamMasuk');
+            $table->integer('perlengkapan_id');
+            $table->decimal('durasi', 2, 1)->default(0);
+            $table->decimal('jumlah', 2, 1)->default(0);
+            $table->foreignId('motor_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreatePenjadwalanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penjadwalan');
+        Schema::dropIfExists('pemesanan');
     }
 }

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Motor;
+use App\Models\Kondisi;
 use App\Models\Penyewa;
+use App\Models\Ulasan;
+use DB;
 use App\Models\Perlengkapan;
 use Illuminate\Http\Request;
 
@@ -15,6 +18,7 @@ class motorController extends Controller
      */
     public function index()
     {
+        // 'penyewa' adalah relasi dari motor
         $motors = Motor::all();
         return view('motors.index', compact('motors'));
     }
@@ -60,6 +64,10 @@ class motorController extends Controller
         return redirect()->route('motors.index')->with('notif', 'Data Berhasil di input');
     }
 
+    public function tambah($id)
+    {
+        return redirect()->route();
+    }
     /**
      * Display the specified resource.
      *
@@ -68,7 +76,15 @@ class motorController extends Controller
      */
     public function show($id)
     {
-        //
+        // $ulasan =Motor::with('ulasan')-get();
+        // $ulasanById = Ulasan::find($ulasan)->get();
+        $ulasanById = Ulasan::where('motor_id',1)->get('keterangan');
+        $ulasan = Motor::find($id)->ulasan;
+        $kondisi = Motor::find($id)->kondisi;
+        $motors = Motor::find($id);
+        $rating = Ulasan::find($id)->rating;
+        // dd($ulasanById);
+        return view('motors.show', compact('motors','ulasan', 'ulasanById', 'kondisi' ,'rating'));
     }
 
     /**
@@ -89,7 +105,9 @@ class motorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+     public function update(Request $request, $id)
     {
         //
     }

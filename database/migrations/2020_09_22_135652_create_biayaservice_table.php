@@ -21,6 +21,7 @@ class CreateBiayaserviceTable extends Migration
             $table->string('pengereman');
             $table->string('total');
             $table->integer('service_id');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

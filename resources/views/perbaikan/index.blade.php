@@ -4,10 +4,10 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Data Penyewa</h3>
+        <h3 class="card-title">Data Perbaikan Motor</h3>
       </div>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href=" {{route('penyewa.create')}} " class="nav-link">Tambah Data</a>
+            <a href=" {{route('perbaikan.create')}} " class="nav-link">Tambah Data</a>
           </li>
             @if(session('status'))
               <div class="alert alert-success" role="alert">
@@ -19,44 +19,33 @@
               <thead class="thead-dark">
                   <tr>
                       <th style="width: 1%"> No </th>
-                      <th style="width: 20%"> Nama </th>
-                      <th style="width: 20%"> Motor </th>
-                      <th style="width: 20%"> Jam Keluar </th>
-                      <th style="width: 20%"> Jam Masuk </th>
-                      <th style="width: 13%" > Aksi </th>
+                      <th style="width: 15%"> Motor </th>
+                      <th style="width: 15%"> Bagian </th>
+                      <th style="width: 15%"> Jumlah </th>
+                      <th style="width: 15%"> Total </th>
+                      <th style="width: 15%"> Tanggal </th>
+                      <th style="width: 20%" > Aksi </th>
                   </tr>
               </thead>
-              @foreach($penyewas as $penyewa)
+              @foreach($perbaikans as $perbaikan)
                 <tbody>
                     <tr>
                         <td> {{$loop->iteration}} </td>
-                        <td> {{$penyewa->nama}} </td>
                         <td> 
-                        @foreach ($penyewa->motor as $motor)
-                          <ul>
-                            <li>
-                              {{ $motor->nama}} 
-                            </li>
-                          </ul>
+                            {{--  nama Motor  --}}
+                        @foreach ($perbaikan->motor as $motor)
+                            {{ $motor->nama}}
                         @endforeach
                         </td>
-                        <td>
-                            {{-- Jam Keluar --}}
-                            @foreach ($penyewa->penjadwalan as $jadwal)
-                                {{ $jadwal->jamKeluar}}
-                            @endforeach
-                        </td>
-                        <td>
-                          {{--  Jam Keluar  --}}
-                            @foreach ($penyewa->penjadwalan as $jadwal)
-                                {{ $jadwal->jamMasuk}}
-                            @endforeach
-                        </td>
+                        <td> {{$perbaikan->bagian}} </td>
+                        <td> {{$perbaikan->jumlah}} </td>
+                        <td> {{$perbaikan->total}} </td>
+                        <td> {{$perbaikan->tanggal}} </td>
                         <td class="project-actions text-right">
                             <a class="btn btn-warning btn-sm" href=" # ">
                               Edit
                             </a>
-                            <form name="{{ $penyewa->id }}" action="#" method="post" style="display: inline-block;">
+                            <form name="{{ $perbaikan->id }}" action="#" method="post" style="display: inline-block;">
                         @csrf
                           @method('DELETE')
                             <input type="submit" name="" value="Delete" class="btn btn-danger btn-sm">

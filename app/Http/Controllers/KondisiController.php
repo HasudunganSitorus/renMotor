@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resource\PenyewaResource;
-use App\Models\Penyewa;
-use App\Models\Motor;
-use App\Models\Perlengkapan;
+use App\Models\Kondisi;
 use Illuminate\Http\Request;
 
-
-class PenyewaController extends Controller
+class KondisiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +13,9 @@ class PenyewaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $penyewas = Penyewa::with('motor')->get();
-        return view('penyewa.index', compact('penyewas'));
+    {
+        $kondisis = Kondisi::with('motor')->get();
+        return view('kondisi.index', compact('kondisis'));
     }
 
     /**

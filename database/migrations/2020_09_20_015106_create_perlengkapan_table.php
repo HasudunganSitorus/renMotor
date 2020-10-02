@@ -18,7 +18,7 @@ class CreatePerlengkapanTable extends Migration
             $table->string('helm');
             $table->char('document');
             $table->string('kondisi');
-            $table->foreignId('motor_id')->constrained();
+            $table->integer('motor_id');
         });
     }
 

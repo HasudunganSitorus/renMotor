@@ -1,0 +1,87 @@
+=======Data Rental Motor========
+
+[1]. Motor
+	id		: 1
+	Nama		: Vario 125 CC 
+	No Plat		: D1221FE
+	avatar		: Gambar Avatar Vario 125 CC
+	penyewa_id	: 1
+--------------------------------
+
+	id		: 2
+	Nama		: Beat Street 100 CC 
+	No Plat		: D2322wE
+	avatar		: Gambar Beat Street
+	penyewa_id	: 2
+--------------------------------
+
+	id		: 3
+	Nama		: Supra 150 CC 
+	No Plat		: D4331RE
+	avatar		: Gambar Supra 150
+	penyewa_id	: 1
+--------------------------------
+
+	id		: 4	
+	Nama		: NMX 150 CC 
+	No Plat		: D3343WE
+	avatar		: Gambar NMX 
+	penyewa_id	: 2
+--------------------------------
+	
+	id		: 5
+	Nama		: Beat Street 100 CC 
+	No Plat		: D2322wE
+	avatar		: Gambar Beat Street
+	penyewa_id	: 2
+--------------------------------
+
+	id		: 6
+	Nama		: Beat Street 100 CC 
+	No Plat		: D2322wE
+	avatar		: Gambar Beat Street
+	penyewa_id	: 2
+--------------------------------
+
+[2]. Penyewa
+	id		: 1
+	Nama		: Mustami
+	gambarProfile	: Gambar Profile
+	gambarKtp	: Gambar Ktp
+	noHandphone	: 081266189684
+--------------------------------
+
+	id		: 2
+	Nama		: Hasudungan
+	gambarProfile	: Gambar Profile
+	gambarKtp	: Gambar Ktp
+	noHandphone	: 081266189684
+--------------------------------
+
+	id		: 3
+	Nama		: Rendi Sugiono
+	gambarProfile	: Gambar Profile
+	gambarKtp	: Gambar Ktp
+	noHandphone	: 81234435665
+--------------------------------
+
+	id		: 4
+	Nama		: Rengga Prasetio
+	gambarProfile	: Gambar Profile
+	gambarKtp	: Gambar Ktp
+	noHandphone	: 81234435665
+--------------------------------
+
+	id		: 5
+	Nama		: Mustofa Ibrahim
+	gambarProfile	: Gambar Profile
+	gambarKtp	: Gambar Ktp
+	noHandphone	:81234567890
+--------------------------------
+
+	id		: 6
+	Nama		: Samsul Hirakno
+	gambarProfile	: Gambar Profile
+	gambarKtp	: Gambar Ktp
+	noHandphone	: 81234435665
+--------------------------------

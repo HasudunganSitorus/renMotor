@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderanTable extends Migration
+class CreateRatingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateOrderanTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderans', function (Blueprint $table) {
+        Schema::create('rating', function (Blueprint $table) {
             $table->id();
-            $table->decimal('durasi', 2, 1)->default(0);
-            $table->decimal('jumlah', 2, 1)->default(0);
-            $table->foreignId('motor_id')->constrained();
-            $table->integer('perlengkapan_id');
+            $table->integer('ulasan_id');
+            $table->char('jumlah');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -31,6 +28,6 @@ class CreateOrderanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderan');
+        Schema::dropIfExists('rating');
     }
 }

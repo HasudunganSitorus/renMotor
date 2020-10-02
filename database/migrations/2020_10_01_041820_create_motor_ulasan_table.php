@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePembayaranTable extends Migration
+class CreateMotorUlasanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePembayaranTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembayaran', function (Blueprint $table) {
+        Schema::create('motor_ulasan', function (Blueprint $table) {
             $table->id();
-            $table->string('tipe');
-            $table->integer('pemesanan_id');
-            $table->decimal('jumlah', 25, 2)->default(0);
-            $table->decimal('total', 25, 2)->default(0);
+            $table->integer('motor_id');
+            $table->integer('ulasan_id');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreatePembayaranTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayaran');
+        Schema::dropIfExists('motor_ulasan');
     }
 }

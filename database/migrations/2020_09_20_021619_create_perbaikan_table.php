@@ -18,7 +18,7 @@ class CreatePerbaikanTable extends Migration
             $table->string('bagian');
             $table->integer('jumlah');
             $table->integer('total');
-            $table->foreignId('motor_id')->constrained();
+            $table->integer('tanggal');
             $table->timestamps();
         });
     }

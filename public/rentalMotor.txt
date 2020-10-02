@@ -1,0 +1,92 @@
+=======Relasi rental Motor======
+
+table Motor
+    id
+    nama
+    noPlat
+    avatar
+    penyewa_id
+
+table Pembayaran
+    id
+    tipe
+    jumlah
+    total
+    pemesanan_id
+
+table kondisi
+    id
+    kelistrikan
+    pengereman
+    mesin
+    motor_id
+
+table penyewa
+    id
+    nama
+    gambarProfile
+    gambarKtp
+    noHandphone
+    motor_id
+
+table faktur
+    id
+    penyewa_id
+    motor_id
+    pembayaran_id
+    pemesanan_id
+
+table penjadwalan
+    id
+    jamMasuk
+    jamKeluar
+    motor_id
+    penyewa_id
+
+table perbaikan
+    id
+    tanggal
+    bagian
+    jumlah
+    total
+    motor_id
+
+table service
+    id
+    steam
+    karburator
+    kelistrikan
+    pengereman
+    motor_id
+    tanggal
+
+table biayaservice
+    id
+    steam
+    karburator
+    kelistrikan
+    pengereman
+    total
+    service_id
+    tanggal
+    
+table penghasilan 
+    id
+    tanggal
+    pembayaran_id
+    biayaservice_id
+    perbaikan_id
+    total
+
+table pemesanan
+    tanggal
+    penyewa_id
+    motor_id
+    perlengkapan_id
+    durasi
+    jumlah
+
+table perlengkapan
+    id
+    helm
+    motor_id

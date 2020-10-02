@@ -4,10 +4,10 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Data Penyewa</h3>
+        <h3 class="card-title">Data Service Motor</h3>
       </div>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href=" {{route('penyewa.create')}} " class="nav-link">Tambah Data</a>
+            <a href=" {{route('motor.create')}} " class="nav-link">Tambah Data</a>
           </li>
             @if(session('status'))
               <div class="alert alert-success" role="alert">
@@ -19,44 +19,35 @@
               <thead class="thead-dark">
                   <tr>
                       <th style="width: 1%"> No </th>
-                      <th style="width: 20%"> Nama </th>
-                      <th style="width: 20%"> Motor </th>
-                      <th style="width: 20%"> Jam Keluar </th>
-                      <th style="width: 20%"> Jam Masuk </th>
-                      <th style="width: 13%" > Aksi </th>
+                      <th style="width: 10%"> Nama </th>
+                      <th style="width: 10%"> Steam </th>
+                      <th style="width: 10%" > Tanggal </th>
+                      <th style="width: 10%" > Karburator/Injeksi </th>
+                      <th style="width: 10%" > Kelistrikan </th>
+                      <th style="width: 10%" > Pengereman </th>
+                      <th style="width: 10%" > Aksi </th>
                   </tr>
               </thead>
-              @foreach($penyewas as $penyewa)
+              @foreach($services as $service)
                 <tbody>
                     <tr>
                         <td> {{$loop->iteration}} </td>
-                        <td> {{$penyewa->nama}} </td>
-                        <td> 
-                        @foreach ($penyewa->motor as $motor)
-                          <ul>
-                            <li>
-                              {{ $motor->nama}} 
-                            </li>
-                          </ul>
-                        @endforeach
-                        </td>
                         <td>
-                            {{-- Jam Keluar --}}
-                            @foreach ($penyewa->penjadwalan as $jadwal)
-                                {{ $jadwal->jamKeluar}}
-                            @endforeach
+                              {{-- Nama Motor --}}
+                              @foreach ($service->motor as $s)
+                                  {{ $s->nama }}
+                              @endforeach
                         </td>
-                        <td>
-                          {{--  Jam Keluar  --}}
-                            @foreach ($penyewa->penjadwalan as $jadwal)
-                                {{ $jadwal->jamMasuk}}
-                            @endforeach
-                        </td>
+                        <td> {{$service->steam}} </td>
+                        <td> {{$service->tanggal}} </td>
+                        <td> {{$service->karburator}} </td>
+                        <td> {{$service->kelistrikan}} </td>
+                        <td> {{$service->pengereman}} </td>
                         <td class="project-actions text-right">
                             <a class="btn btn-warning btn-sm" href=" # ">
                               Edit
                             </a>
-                            <form name="{{ $penyewa->id }}" action="#" method="post" style="display: inline-block;">
+                            <form name="{{ $service->id }}" action="#" method="post" style="display: inline-block;">
                         @csrf
                           @method('DELETE')
                             <input type="submit" name="" value="Delete" class="btn btn-danger btn-sm">

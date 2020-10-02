@@ -30,7 +30,7 @@
         <div class="card-body pb-0">
           <div class="row d-flex align-items-stretch">
             
-            @foreach ($motors as $motor)
+            @foreach ($kondisis as $kondisi)
             <div class="col-12 col-sm-6 col-md-4 mb-4 d-flex align-items-stretch">
               <div class="card bg-light">
                 <div class="card-header mb-2">
@@ -44,19 +44,30 @@
                         </div>
                         
                         <div class="col-7">
-                          <h2 class="lead"><b> {{$motor->nama}}</b></h2>
+                          <h2 class="lead"><b> {{$kondisi->listrik}}</b></h2>
+                          <h2 class="lead"><b> {{$kondisi->kemampuan}}</b></h2>
+                          <p class="text-muted text-sm">
+                            <p> Motor: 
+                                @foreach ($kondisi->motor as $motor)
+                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                  <li class="small">Nama Motor: {{$motor->nama}}</li>
+                                </ul>
+                                @endforeach 
+                              </p>
+                            </p> 
+                          </p>
                         </div>
                       </div>
                     </div>
                     <div class="card-footer">
-                      <div class="mt-4">
-                        <div class="btn btn-outline-info" >
-                          <a href="{{route('motor.show', $motor->id)}}" style="text-decoration:none">Rental</a>  
-                        </div>
-                      <div class="btn btn-secondary">
-                        <a href="#" style="text-decoration:none">Tambah Pesanan </a>
+                      <div class="text-right">
+                      <a href="{{route('motor.show', $motor->id)}}" class="btn btn-outline-primary">
+                           Rental
+                        </a>
+                        <a href="#" class="btn btn-sm btn-primary">
+                          Tambah Pesanan
+                        </a>
                       </div>
-                    </div>
                     </div>
                   </div>
                 </div>

@@ -23,4 +23,9 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('motor', 'motorController');
+Route::get('motorr/{id}/tambah', 'motorController@tambah');
 Route::resource('penyewa', 'PenyewaController');
+Route::resource('perbaikan', 'PerbaikanController');
+Route::resource('layanan', 'ServiceController');
+Route::resource('rental', 'RentalController');
+Route::resource('kondisi', 'KondisiController');

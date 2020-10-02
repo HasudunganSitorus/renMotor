@@ -43,47 +43,8 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="javascript:;">Rental Motor</a>
-                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-    
             <div class="container-fluid">
                 <div class="row">
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="sidebar-sticky pt-3">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{route('home')}}">
-                                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="{{ route('motor.index') }}">
-                                    <i class="fas fa-cogs"></i> Data Motor
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="{{ route('penyewa.index') }}">
-                                    <i class="ion ion-pie-graph"></i>  Data Penyewa
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="{{ route('perbaikan.index')}}">
-                                    <i class="fas fa-sliders-h"></i> Data Perbaikan  
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="{{route('layanan.index')}}">
-                                    <i class="fas fa-users-cog"></i> Data Service 
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    </nav>
-    
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                         <canvas class="my-2 w-100" id="myChart" width="0" height="0"></canvas>
                             @yield('content')

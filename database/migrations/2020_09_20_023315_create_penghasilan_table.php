@@ -15,11 +15,10 @@ class CreatePenghasilanTable extends Migration
     {
         Schema::create('penghasilan', function (Blueprint $table) {
             $table->id();
-            $table->integer('motor_id');
-            $table->integer('transaksi_id');
+            $table->integer('pembayaran_id');
             $table->integer('perbaikan_id');
-            $table->integer('service_id');
             $table->integer('biayaservice_id');
+            $table->date('tangggal');
             $table->integer('total');
             $table->timestamps();
         });
