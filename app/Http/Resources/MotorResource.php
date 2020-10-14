@@ -18,7 +18,11 @@ class MotorResource extends JsonResource
         [
             'id' => $this->id,
             'nama' => $this->nama,
-            'kondisi' => $this->kondisi
+            'noPlat' => $this->noPlat,
+            'kondisi' => $this->kondisi,
+            'avatar' =>$this->avatar,
+            'created_at' =>(string)$this->created_at,
+            'updated_at' =>(string)$this->updated_at,
     ];
     }
 }

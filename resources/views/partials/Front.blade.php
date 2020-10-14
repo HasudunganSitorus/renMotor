@@ -61,51 +61,6 @@
     
             <div class="container-fluid">
                 <div class="row">
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
-                    <div class="sidebar-sticky pt-3">
-                        <div class="user-panel  mt-3 pb-3 mb-3 d-flex ">
-                            <div class="info">
-                              <a href="#" class="d-block">{{ trans('global.admin') }}</a>
-                            </div>
-                          </div>
-                        <ul class="nav flex-column ">
-                            <li class="c-sidebar-nav-item ">
-                                <a class="c-sidebar-nav-link" href="{{route('admin.index')}}">
-                                    <i class="c-sidebar-nav-icon fas fa-tachometer-alt"></i> {{ trans('global.dashboard') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{ route('motor.index') }}">
-                                    <i class="c-sidebar-nav-icon fas fa-cogs"></i> {{ trans('global.motor') }} 
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{ route('penyewa.index') }}">
-                                    <i class="c-sidebar-nav-icon ion ion-pie-graph"></i>  {{ trans('global.penyewa') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{ route('perbaikan.index')}}">
-                                    <i class="c-sidebar-nav-icon fas fa-sliders-h"></i> {{ trans('global.perbaikan') }} 
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('layanan.index')}}">
-                                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon"></i> {{ trans('global.layanan') }} 
-                                </a>
-                            </li>
-                            <li class="c-sidebar-nav-item">
-                                <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                                    <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">
-                    
-                                    </i>
-                                    {{ trans('global.logout') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    </nav>
-    
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                         <canvas class="my-2 w-100" id="myChart" width="0" height="0"></canvas>
                             @yield('content')

@@ -6,7 +6,9 @@ use App\Models\Kondisi;
 use App\Models\Penyewa;
 use App\Models\Ulasan;
 use DB;
+use App\Models\Rating;
 use App\Models\Perlengkapan;
+use App\Http\Resource\MotorResource;
 use Illuminate\Http\Request;
 
 class motorController extends Controller
@@ -19,7 +21,8 @@ class motorController extends Controller
     public function index()
     {
         // 'penyewa' adalah relasi dari motor
-        $motors = Motor::all();
+        $motors = DB::table('motor')->select('nama', 'noPlat', 'id')->get();
+        // dd($motors);
         return view('motors.index', compact('motors'));
     }
 
@@ -31,9 +34,9 @@ class motorController extends Controller
     public function create()
     {   
         $motor = Motor::all();
-        $penyewas =Penyewa::all();
-        $perlengkapans = Perlengkapan::all();
-        return view('motors.create', compact('motor','penyewas', 'perlengkapans'));
+        // $penyewas =Penyewa::all();
+        // $perlengkapans = Perlengkapan::all();
+        return view('motors.create', compact('motor'));
     }
 
     /**
@@ -44,22 +47,35 @@ class motorController extends Controller
      */
     public function store(Request $request)
     {
-        $motors = Motor::all();
-
-        $nama = $request->nama;
-        $noPlat = $request->noPlat;
-        $avatar = $request->avatar;
-        $kondisi = $request->kondisi;
-        $penyewa_id = $request->penyewa_id;
-        $perlengkapan_id = $request->perlengkan_id;
-        
-        $motors->nama = $nama;
-        $motors->noPlat = $noPlat;
-        $motors->avatar = $avatar;
-        $motors->kondisi = $kondisi;
-        $motors->penyewa_id = $penyewa_id;
-        $motor->perlengkapan_id = $perlengkapan_id;
+        $this->validate($request,[
+            'nama'  =>  'required',
+            'noPlat'=>  'required',
+            'kondisi'=> 'required',
+            'avatar'=>  'required|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+        $motors = new Motor();
+        // Validasi
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $nama = str_slug($request->nama).'.'.$avatar->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $avatarPath = $destinationPath. "/" .$nama;
+            $image = move($avatar,$nama);
+            $motors->avatar = $nama;     
+        }
+        $motors->nama = $request->nama;
+        $motors->noPlat = $request->noPlat;
+        $motors->kondisi = $request->kondisi;
         $motors->save();
+        // $penyewa_id = $request->penyewa_id;
+        // $perlengkapan_id = $request->perlengkan_id;
+        
+        // $motors->nama = $nama;
+        // $motors->noPlat = $noPlat;
+        // $motors->avatar = $avatar;
+        // $motors->kondisi = $kondisi;
+        // $motors->penyewa_id = $penyewa_id;
+        // $motor->perlengkapan_id = $perlengkapan_id;
 
         return redirect()->route('motors.index')->with('notif', 'Data Berhasil di input');
     }
@@ -76,15 +92,14 @@ class motorController extends Controller
      */
     public function show($id)
     {
-        // $ulasan =Motor::with('ulasan')-get();
-        // $ulasanById = Ulasan::find($ulasan)->get();
-        $ulasanById = Ulasan::where('motor_id',1)->get('keterangan');
+        $penyewa = Penyewa::where('nama')->get();
+        $ulasanCount = Ulasan::all();
+        $ulasanById = Ulasan::where('motor_id', $id)->get( 'keterangan');
         $ulasan = Motor::find($id)->ulasan;
         $kondisi = Motor::find($id)->kondisi;
         $motors = Motor::find($id);
-        $rating = Ulasan::find($id)->rating;
-        // dd($ulasanById);
-        return view('motors.show', compact('motors','ulasan', 'ulasanById', 'kondisi' ,'rating'));
+        $ratings = Rating::where('motor_id',$id)->get('jumlah');
+        return view('motors.show', compact('ulasanCount','motors','ulasan', 'ulasanById', 'kondisi' ,'ratings'));
     }
 
     /**

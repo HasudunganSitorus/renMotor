@@ -19,7 +19,7 @@ class Motor extends Model
     
     public function penyewa()
     {
-        return $this->belongsToMany(Penyewa::class,'motor_penyewa','motor_id', 'penyewa_id');
+        return $this->hasOne('App\Models\Penyewa','motor_penyewa','motor_id', 'penyewa_id');
     }
 
     public function kondisi()
@@ -28,7 +28,7 @@ class Motor extends Model
     }
     public function ulasan()
     {
-        return $this->hasOne('App\Models\Ulasan', 'id');
+        return $this->hasOne('App\Models\Ulasan');
     }
 
     public function service()

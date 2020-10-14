@@ -18,6 +18,15 @@
                 aria-controls="basicExampleNav11" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+
+              <!-- Breadcrumbs -->
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="waves-effect" href="#!">Home</a></li>
+                <li class="breadcrumb-item"><a class="waves-effect" href="#!">Templates</a></li>
+                <li class="breadcrumb-item active"><a class="waves-effect" href="#!">E-commerce</a></li>
+              </ol>
+              <!-- Breadcrumbs -->
+
               <!-- Links -->
               <div class="collapse navbar-collapse" id="basicExampleNav11">
 

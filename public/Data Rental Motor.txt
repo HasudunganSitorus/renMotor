@@ -85,3 +85,29 @@
 	gambarKtp	: Gambar Ktp
 	noHandphone	: 81234435665
 --------------------------------
+
+motor-penyewa
+	motor_id  |  penyewa_id
+	1		2
+	2		2
+	3		2
+	4		3
+	1		1
+	2		1
+	1		4
+	2		4
+	4		5
+	1		5
+	1		5
+	3		6	
+
+
+
+
+
+    public function index()
+    {
+        $gender = 'Perempuan';
+        $ortu = Cucu::where('gender', 'LIKE', '%'.$gender.'%')->get();
+        dd($ortu); // menampilkan semua nama cucu perempuan dari budi
+    }

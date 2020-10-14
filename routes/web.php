@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('admin/motor', 'motorController');
+Route::resource('admin', 'adminController');
 Route::resource('motor', 'motorController');
 Route::get('motorr/{id}/tambah', 'motorController@tambah');
 Route::resource('penyewa', 'PenyewaController');
@@ -29,3 +31,8 @@ Route::resource('perbaikan', 'PerbaikanController');
 Route::resource('layanan', 'ServiceController');
 Route::resource('rental', 'RentalController');
 Route::resource('kondisi', 'KondisiController');
+// =====================
+Route::resource('ortu', 'OrtuController');
+Route::resource('cucu', 'CucuController');
+Route::resource('family', 'FamilyController');
+Route::resource('grandfather', 'GrandfatherController');

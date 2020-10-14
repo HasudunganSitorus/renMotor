@@ -90,3 +90,12 @@ table perlengkapan
     id
     helm
     motor_id
+
+        Schema::create('cucus', function (Blueprint $table) {
+            $table->id();
+            $table->char('nama');
+            $table->char('jenisKelamin');
+            $table->unsignedInteger('ortu_id')->index();
+            $table->timestamps();
+        });
+
