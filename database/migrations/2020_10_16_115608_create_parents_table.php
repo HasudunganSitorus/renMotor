@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrtuTable extends Migration
+class CreateParentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateOrtuTable extends Migration
      */
     public function up()
     {
-        Schema::create('ortu', function (Blueprint $table) {
+        Schema::create('parents', function (Blueprint $table) {
             $table->id();
-            $table->char('nama');
-            $table->char('jenisKelamin');
+            $table->char('name');
+            $table->char('gender');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateOrtuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ortu');
+        Schema::dropIfExists('parents');
     }
 }

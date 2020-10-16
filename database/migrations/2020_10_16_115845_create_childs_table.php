@@ -17,7 +17,6 @@ class CreateChildsTable extends Migration
             $table->id();
             $table->char('name');
             $table->char('gender');
-            $table->unsignedInteger('grandfather_id')->index();
             $table->unsignedInteger('parent_id')->index();
             $table->timestamps();
         });

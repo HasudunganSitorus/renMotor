@@ -60,18 +60,21 @@
         <div id="app">
     
             <div class="container-fluid">
+
                 <div class="row">
                     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
-                    <div class="sidebar-sticky pt-3">
-                        <div class="user-panel  mt-3 pb-3 mb-3 d-flex ">
-                            <div class="info">
-                              <a href="#" class="d-block">{{ trans('global.admin') }}</a>
+                        <div class="flex items-center justify-center mt-4">
+                            <div class="flex items-center">
+                                <span class="text-white text-2xl mx-4 font-semibold">{{ trans('global.site_title') }}</span>
                             </div>
-                          </div>
+                        </div>
+                        <div class="sidebar-sticky pt-3 ">
+                        {{-- e --}}
                         <ul class="nav flex-column ">
                             <li class="c-sidebar-nav-item ">
                                 <a class="c-sidebar-nav-link" href="{{route('admin.index')}}">
-                                    <i class="c-sidebar-nav-icon fas fa-tachometer-alt"></i> {{ trans('global.dashboard') }}
+                                    <i class="c-sidebar-nav-icon fas fa-tachometer-alt"></i>
+                                    <span > {{ trans('global.dashboard') }}</span>
                                 </a>
                             </li>
                             <li class="nav-item">

@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Parents extends Model
 {
     protected $table = 'parents';
-    protected $fillable = ['id', 'name', 'gender', 'grandfather_id'];
+    protected $fillable = ['id', 'name', 'gender'];
 
-    public function child()
+    public function childs()
     {
-        return $this->hasOne('App\Models\Childs');
+        return $this->hasMany('App\Models\Childs','parent_id');
     }
-    public function grandfather()
+
+    public function grandchilds()
     {
-        return $this->belongsTo('App\Models\Grandfathers', 'grandfather_id');
+        return $this->hasMany('App\Models\Grandchilds', 'grandchild_id');
     }
 }

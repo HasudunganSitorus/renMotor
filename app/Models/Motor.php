@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class Motor extends Model
 {
     protected $table = 'motor';
-    protected $fillable = ['id','nama', 'noPlat','kondisi','avatar'];
+    protected $fillable = ['id','nama', 'noPlat', 'avatar'];
 
     
     public function penyewa()

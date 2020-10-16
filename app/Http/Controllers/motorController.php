@@ -50,34 +50,21 @@ class motorController extends Controller
         $this->validate($request,[
             'nama'  =>  'required',
             'noPlat'=>  'required',
-            'kondisi'=> 'required',
             'avatar'=>  'required|mimes:jpeg,png,jpg,gif,svg'
         ]);
         $motors = new Motor();
-        // Validasi
-        if($request->hasFile('avatar')){
-            $avatar = $request->file('avatar');
-            $nama = str_slug($request->nama).'.'.$avatar->getClientOriginalExtension();
-            $destinationPath = public_path('/images');
-            $avatarPath = $destinationPath. "/" .$nama;
-            $image = move($avatar,$nama);
-            $motors->avatar = $nama;     
-        }
-        $motors->nama = $request->nama;
-        $motors->noPlat = $request->noPlat;
-        $motors->kondisi = $request->kondisi;
-        $motors->save();
-        // $penyewa_id = $request->penyewa_id;
-        // $perlengkapan_id = $request->perlengkan_id;
         
-        // $motors->nama = $nama;
-        // $motors->noPlat = $noPlat;
-        // $motors->avatar = $avatar;
-        // $motors->kondisi = $kondisi;
-        // $motors->penyewa_id = $penyewa_id;
-        // $motor->perlengkapan_id = $perlengkapan_id;
+        $file = $request->file('avatar');
+        $fileName = time()."_".$file->getClientOriginalName();
+        $destanition = 'images';
+        $file->move($destanition, $fileName);
 
-        return redirect()->route('motors.index')->with('notif', 'Data Berhasil di input');
+        Motor::create([
+            'avatar'    => $fileName,
+            'nama'      => $request->nama,
+            'noPlat'    => $request->noPlat,
+        ]);
+        return redirect()->route('motors.index')->with('status', 'Data Berhasil di input');
     }
 
     public function tambah($id)

@@ -2,26 +2,22 @@
 
 @section('content')
 
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
+      @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+      @endif
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <!-- Navbar -->
             <nav class="navbar navbar-expand-md navbar-light">
-
-              <!-- Collapse button -->
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav11"
                 aria-controls="basicExampleNav11" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <!-- Links -->
               <div class="collapse navbar-collapse" id="basicExampleNav11">
-
-                <!-- Right -->
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
                     <a href="#!" class="nav-link navbar-link-2 waves-effect">
@@ -61,21 +57,14 @@
                   </li>
                 </ul>
 
-              </div>
-              <!-- Links -->
-
+              </div><!-- Links -->
             </nav>
-            <!-- Navbar -->
           </div>
         </div>
       </div>
     </section>
-
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-
       <div class="card card-solid">
         <div class="card">
           <div class="card-header">
@@ -89,14 +78,11 @@
               <div class="card bg-light">
                 <div class="card-header mb-2">
                     </div>
-                    <!-- card-body -->
                     <div class="card-body pt-0">
                       <div class="row">
-                        <!-- col -->
                         <div class="col-5 text-center">
-                          <img src="{{('gambar/User1.jpg')}}" alt="" class="img-circle img-fluid">
+                          <img class="profile-user-img img-fluid img-circle" src="#" alt="" >
                         </div>
-                        
                         <div class="col-7">
                           <h2 class="lead"><b> {{$motor->nama}}</b></h2>
                         </div>
@@ -115,14 +101,10 @@
                   </div>
                 </div>
                 @endforeach
-                
               </div>
-            </div>
-        <!-- /.card-footer -->
-      </div>
-      <!-- /.card -->
+            </div><!-- /.card-footer -->
+      </div><!-- /.card -->
     </section>
-    <!-- /.content -->
-  </div>
+  </div><!-- /.content -->
   <!-- /.content-wrapper -->
 @endsection

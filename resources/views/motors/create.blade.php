@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form class="card" role="form" method="POST" action="{{ route('motor.store') }}">
+    <form class="card" role="form" method="POST" action="{{ route('motor.store') }}" enctype="multipart/form-data">
         @csrf
         {{--  Row  --}}
         <div class="row">
@@ -28,15 +28,6 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Gambar </label>
                                         <input type="file" name="avatar" class="form-control-file" id="exampleFormControlFile1">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Kondisi motor</label>
-                                        <select class="form-control" name="kondisi" id="exampleFormControlSelect1">
-                                            <option value="OK">Layak Pakai</option>
-                                            <option value="PERBAIKAN">Dalam Perbaikan</option>
-                                        </select>
                                 </div>
                             </div>
                         </div><!-- /.row -->

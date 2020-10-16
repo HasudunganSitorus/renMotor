@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
  
-use App\Models\Grandfathers;
-use App\Models\Parents;
-use App\Models\Childs;
+// use App\Models\Parent;
+// use App\Models\Child;
+// use App\Models\Grandchild;
 use Illuminate\Http\Request;
 
 class GrandfatherController extends Controller
@@ -16,10 +16,10 @@ class GrandfatherController extends Controller
      */
     public function index()
     {
-        $grandfathers = Grandfathers::with('child')->get();
-        $parents = Parents::with('grandfather')->get();
-        $childs = Childs::with('parent')->get();
-        return view('grandfathers.index', compact('grandfathers', 'parents', 'childs'));
+        // $grandfathers = Parent::all();~
+        // $parents = Child::all();
+        // $childs = GrandChild::all();
+        // return view('grandfathers.index', compact('grandfathers', 'parents', 'childs'));
         // dd($grandfathers);
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGrandfathersTable extends Migration
+class CreateGrandchildsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateGrandfathersTable extends Migration
      */
     public function up()
     {
-        Schema::create('grandfathers', function (Blueprint $table) {
+        Schema::create('grandchilds', function (Blueprint $table) {
             $table->id();
             $table->char('name');
             $table->char('gender');
+            $table->unsignedBigInteger('parent_id')->index();
+            $table->unsignedBigInteger('grandchild_id')->index();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateGrandfathersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grandfathers');
+        Schema::dropIfExists('grandchilds');
     }
 }

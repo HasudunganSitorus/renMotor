@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Ortu;
-use App\Models\Cucu;
+use App\Models\Parents;
+// use App\Models\Childs;
+use App\Models\Grandchilds;
 use DB;
+use Illuminate\Http\Request;
+
 class FamilyController extends Controller
 {
     /**
@@ -15,8 +17,11 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        $ortus = Ortu::with('cucu')->get();
-        return view('ortu.index', compact('ortus'));
+        $parents = Parents::all();
+        // $grandchilds = Grandchilds::all();
+        $grandchilds = Grandchilds::with('childs')->get();
+        return view('family.index', compact('parents', 'grandchilds'));
+        // dd($grandchilds);
     }
 
     /**

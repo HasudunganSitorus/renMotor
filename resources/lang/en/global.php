@@ -15,6 +15,7 @@ return [
     'perbaikan'                            => 'Data Perbaikan',
     'layanan'                              => 'Data Layanan',
     'jumlah'                              => 'Jumlah  Motor',
+    'site_title'                              => 'Rental Motor',
     // 
     'delete'                               => 'Delete',
     'downloadFile'                         => 'Download file',
