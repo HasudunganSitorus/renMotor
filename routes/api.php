@@ -21,3 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('motor','motorController@index' );
 Route::resource('categories', 'CategoriesController');
 Route::resource('product', 'ProductController');
+
+// ======== Family Tree =======
+
+Route::apiResource('/parent', 'ParentController');
+
+Route::get('/parent', 'ParentController@index');
+Route::get('/parent/create', 'ParentController@create');

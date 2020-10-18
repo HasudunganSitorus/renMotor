@@ -1,27 +1,35 @@
 @extends('partials.Front')
 
 @section('content')
-  <div class="tree">
+  <body>
+    <div id="app">
+      <div class="container">
+        <family></family>
+      </div>
+    </div>
+
+    <script></script>
+
+  </body>
+  {{-- <div class="tree">
     <ul>
       @foreach ($parents as $parent)
         <li>
-            <a class="bg-primary" href="#" >{{$parent->name}}</a>
+            <a class="bg-info" href="#" >{{$parent->name}}</a>
             <ul>
               @foreach ($parent->childs as $child)
                 <li>
                   <a href="#">{{$child['name']}} </a>
-                </li>
-              @endforeach
-            </ul>
-            @foreach ($grandchilds as $grandchild)
-              <li>
                   <ul>
-                    <a href="#">{{$grandchild['name']}}</a>
+                    <li> 
+                      <a href="#">Grandchilds</a>
+                    </li>
                   </ul>
                 </li>
               @endforeach
+            </ul>
           @endforeach
         </li>
     </ul>
-  </div>
+  </div> --}}
 @endsection

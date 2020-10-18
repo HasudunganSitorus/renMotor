@@ -1,13 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
- 
-// use App\Models\Parent;
-// use App\Models\Child;
-// use App\Models\Grandchild;
+
 use Illuminate\Http\Request;
 
-class GrandfatherController extends Controller
+class GrandchildController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +13,7 @@ class GrandfatherController extends Controller
      */
     public function index()
     {
-        // $grandfathers = Parent::all();~
-        // $parents = Child::all();
-        // $childs = GrandChild::all();
-        // return view('grandfathers.index', compact('grandfathers', 'parents', 'childs'));
-        // dd($grandfathers);
+        //
     }
 
     /**
@@ -30,7 +23,7 @@ class GrandfatherController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**

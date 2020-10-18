@@ -16,6 +16,6 @@ class Parents extends Model
 
     public function grandchilds()
     {
-        return $this->hasMany('App\Models\Grandchilds', 'grandchild_id');
+        return $this->hasMany('App\Models\Grandchilds', 'grandchild_id','name');
     }
 }

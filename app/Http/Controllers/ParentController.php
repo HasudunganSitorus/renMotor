@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parents;
-use App\Models\Childs;
-use App\Models\Grandchilds;
-use DB;
+use App\Http\Resources\ParentResource;
 use Illuminate\Http\Request;
 
-class FamilyController extends Controller
+class ParentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +15,9 @@ class FamilyController extends Controller
      */
     public function index()
     {
-        $parents = Parents::with('grandchilds')->get();
-        // $grandchilds = Grandchilds::all();
-        $grandchilds = Childs::find(1)->grandchilds;
-        return view('family.index', compact('parents', 'grandchilds'));
-        // dd($grandchilds);
+        // get Parernts Values
+        $parents = Parents::all();
+        return ParentResource::colection($parents);
     }
 
     /**
