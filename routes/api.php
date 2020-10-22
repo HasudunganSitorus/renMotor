@@ -26,5 +26,5 @@ Route::resource('product', 'ProductController');
 
 Route::apiResource('/parent', 'ParentController');
 
-Route::get('/parent', 'ParentController@index');
-Route::get('/parent/create', 'ParentController@create');
+Route::get('parent', 'ParentController@index');
+Route::get('child', 'ChildController@index');

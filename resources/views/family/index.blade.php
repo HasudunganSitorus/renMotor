@@ -7,11 +7,9 @@
         <family></family>
       </div>
     </div>
-
-    <script></script>
-
-  </body>
-  {{-- <div class="tree">
+    </body>
+  <script src="{{mix('js/app.js')}}"></script>
+  {{--  <div class="tree">
     <ul>
       @foreach ($parents as $parent)
         <li>
@@ -31,5 +29,5 @@
           @endforeach
         </li>
     </ul>
-  </div> --}}
+  </div>   --}}
 @endsection

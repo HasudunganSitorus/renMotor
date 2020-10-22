@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Child;
+use App\Http\Resources\ChildResource;
 use Illuminate\Http\Request;
 
 class ChildController extends Controller
@@ -13,7 +14,7 @@ class ChildController extends Controller
      */
     public function index()
     {
-        //
+        return Child::all();
     }
 
     /**

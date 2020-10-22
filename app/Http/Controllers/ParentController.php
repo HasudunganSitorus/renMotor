@@ -16,8 +16,9 @@ class ParentController extends Controller
     public function index()
     {
         // get Parernts Values
-        $parents = Parents::all();
-        return ParentResource::colection($parents);
+        $parents = Parents::orderBy('name', 'desc')->get();
+        return ParentResource::collection($parents);
+        // return ParentResource::colection($parents);
     }
 
     /**

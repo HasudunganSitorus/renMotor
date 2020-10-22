@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Parents;
-use App\Models\Childs;
-use App\Models\Grandchilds;
-use App\Http\Resource\ParentResource;
+use App\Models\Teacher;
+use App\Models\CompetenceTeacher;
+use App\Models\Registry;
+use App\Models\Requisite;
 use DB;
 use Illuminate\Http\Request;
 
-class FamilyController extends Controller
+class SchoolController extends Controller
 {
-    /**
+    /**P
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // $parents = Parents::with('grandchilds')->get();
-        // $grandchilds = Grandchilds::all();
-        // $grandchilds = Childs::find(1)->grandchilds;
-        // return view('family.index', compact('parents', 'grandchilds'));
-        return ParentResource::collection(Parent::all());
-        // dd($grandchilds);
+        $require = 5;
+        // $registies = Requisite::with('student')->get();
+        $requisite = Requisite::where('subjectclass_id', 'LIKE', '%'.$require.'%')->with( 'subjectClass')->get(); 
+        // $requisite = Requisite::where('subjectclass_id', 'LIKE', '%'.$require.'%')->with( 'subjectClass')->get(); 
+        return view('school.index', compact('requisite'));
+        // dd($requisite);
     }
 
     /**
