@@ -33,5 +33,8 @@ Route::resource('rental', 'RentalController');
 Route::resource('kondisi', 'KondisiController');
 // =====================
 Route::resource('family', 'FamilyController');
+Route::resource('parent', 'ParentController');
 // ==============
 Route::resource('school', 'SchoolController');
+
+// Route::view('/', 'home');

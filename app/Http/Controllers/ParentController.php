@@ -17,8 +17,10 @@ class ParentController extends Controller
     {
         // get Parernts Values
         $parents = Parents::orderBy('name', 'desc')->get();
-        return ParentResource::collection($parents);
         // return ParentResource::colection($parents);
+        return ParentResource::collection($parents);
+        // $parents = Parents::all();
+        // return response()->json($parents);
     }
 
     /**

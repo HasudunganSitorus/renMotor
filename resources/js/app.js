@@ -8,8 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import Family from './components/Family.vue';
-import Articles from './components/Articles';
+import axios from 'axios';
+import family from './components/Family.vue';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,9 +21,6 @@ import Articles from './components/Articles';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Vue.component('articles', require('./components/Articles.vue').default);
-Vue.component('family', require('./components/Family.vue').default);
-Vue.component('navbar', require('./components/Navbar.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,12 +30,11 @@ Vue.component('navbar', require('./components/Navbar.vue').default);
 
 const app = new Vue({
     el: '#app',
+    router: 'router',
+    render:h =>h(App),
 });
- 
-const route = [
-    {
-         name: home,
-        path: '/',
-        component: Family
-    }
-]
+
+
+
+const router = new VueRouter({ mode: 'history', routes: routes});
+new Vue(Vue.util.extend({ router }, App)).$mount('#app');

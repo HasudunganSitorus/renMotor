@@ -14,7 +14,9 @@ class ChildController extends Controller
      */
     public function index()
     {
-        return Child::all();
+        $childs = Child::orderBy('name', 'desc')->get();
+        return ChildResource::collection($childs);
+
     }
 
     /**
