@@ -37,4 +37,4 @@ Route::resource('parent', 'ParentController');
 // ==============
 Route::resource('school', 'SchoolController');
 
-// Route::view('/', 'home');
+Route::view('/', 'home');
