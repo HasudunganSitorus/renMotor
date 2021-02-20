@@ -45,6 +45,7 @@ export default {
             error: {}
         }
     },
+    name: "Family",
     // created() {
     //     let uri = 'api/parents';
     //     this.axios.get(uri).then(response => {

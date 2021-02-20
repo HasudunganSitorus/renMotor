@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Parents;
-use App\Http\Resources\ParentResource;
+use App\Models\Customer;
+use App\Models\Motor;
 use Illuminate\Http\Request;
 
-class ParentController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,15 @@ class ParentController extends Controller
      */
     public function index()
     {
-        $parents = Parents::orderBy('name', 'desc')->get();
-        return view('parents.index', compact('parents'));
-        // dd($parents);
-    }
+        $customers = Customer::with('motor')->get();
+        // $customers =  Motor::with('penyewa')->get();
+        // $customers->with('penyewa')->get();
+        dd($customers);
+
+        // $customers = Customer::orderBy('name', 'asc')->get();
+        // return view('customer.customer', compact('customers'));
+        // dd($customers);
+        }
 
     /**
      * Show the form for creating a new resource.

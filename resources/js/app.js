@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('customer-component', require('./components/Customer/Customer.vue').default);
 Vue.component('family', require('./components/Family.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,11 +28,7 @@ Vue.component('family', require('./components/Family.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 const app = new Vue({
     el: '#app',
 });
-
-
-
-// const router = new VueRouter({ mode: 'history', routes: routes});
-// new Vue(Vue.util.extend({ router }, App)).$mount('#app');

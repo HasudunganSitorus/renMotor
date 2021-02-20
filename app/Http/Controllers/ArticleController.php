@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Parents;
-use App\Http\Resources\ParentResource;
+use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class ParentController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,13 @@ class ParentController extends Controller
      */
     public function index()
     {
-        $parents = Parents::orderBy('name', 'desc')->get();
-        return view('parents.index', compact('parents'));
-        // dd($parents);
+        $articles = Article::find(1);
+    //    echo $articles->tags();
+        // $articles = Article::with('tags')->get();
+        // return view('article.index',compact('articles'));
+        // $articles->find(1)->tags()->orderBy('title')->get();
+        // $articles->contains(Article::find(1));
+        dd($articles);
     }
 
     /**
@@ -27,7 +32,7 @@ class ParentController extends Controller
      */
     public function create()
     {
-        //
+        return redirect('article.create');
     }
 
     /**
@@ -38,7 +43,19 @@ class ParentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:25|min:3',
+            'body'  =>  'required|max:100|min:3',
+        ]);
+
+        $article = Article::create([
+            'title' => $request->title,
+            'body'  => $request->body,
+            'slug'  => Str::slug($request->title, '-')
+        ]);
+
+        $article->save();
+
     }
 
     /**

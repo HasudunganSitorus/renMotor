@@ -21,9 +21,9 @@ class motorController extends Controller
     public function index()
     {
         // 'penyewa' adalah relasi dari motor
-        $motors = DB::table('motor')->select('nama', 'noPlat', 'id')->get();
-        // dd($motors);
-        return view('motors.index', compact('motors'));
+        $motors = DB::table('motors')->select('nama', 'noPlat', 'id')->get();
+        dd($motors);
+        // return view('motors.index', compact('motors'));
     }
 
     /**

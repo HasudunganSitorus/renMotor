@@ -20,10 +20,12 @@ Route::get('/', function () {
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::resource('admin/motor', 'motorController');
-Route::resource('admin', 'adminController');
+Route::resource('customer', 'CustomerController');
+Route::get('article', 'ArticleController');
+Route::resource('admin', 'AdminController');
+Route::resource('user', 'UserController');
 Route::resource('motor', 'motorController');
 Route::get('motorr/{id}/tambah', 'motorController@tambah');
 Route::resource('penyewa', 'PenyewaController');
@@ -37,4 +39,4 @@ Route::resource('parent', 'ParentController');
 // ==============
 Route::resource('school', 'SchoolController');
 
-Route::view('/', 'home');
+// Route::view('/', 'home');

@@ -2,22 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Parents;
-use App\Http\Resources\ParentResource;
 use Illuminate\Http\Request;
-
-class ParentController extends Controller
+use App\User;
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $parents = Parents::orderBy('name', 'desc')->get();
-        return view('parents.index', compact('parents'));
-        // dd($parents);
+        if(request()->user()->hasRole('user')){
+            return view('user.index');
+        }
+        else{
+            return redirect('/');
+        }
     }
 
     /**

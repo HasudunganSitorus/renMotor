@@ -14,7 +14,7 @@
         <div class="container text-center">
             <a href="/" class="navbar-brand "> <h6>Family Tree</h6></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </nav>

@@ -24,5 +24,7 @@ Route::resource('product', 'ProductController');
 
 // ======== Family Tree =======
 
-Route::get('parents', 'ParentController@index');
+Route::get('parent', 'ParentController@index');
 Route::get('childs', 'ChildController@index');
+
+Route::get('customer', 'Api\CustomerController@index');

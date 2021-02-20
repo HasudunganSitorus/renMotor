@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Parents;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\ParentResource;
 use Illuminate\Http\Request;
+use App\Models\Parents;
 
 class ParentController extends Controller
 {
@@ -15,9 +16,8 @@ class ParentController extends Controller
      */
     public function index()
     {
-        $parents = Parents::orderBy('name', 'desc')->get();
-        return view('parents.index', compact('parents'));
-        // dd($parents);
+        $parents =  Parents::all();
+        return ParentResource::collection($parents);
     }
 
     /**

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\Parents;
-use App\Http\Resources\ParentResource;
+namespace App\Http\Controllers\Api;
+use App\Models\Customer;
+use App\Http\Resources\CustomerResource;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ParentController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class ParentController extends Controller
      */
     public function index()
     {
-        $parents = Parents::orderBy('name', 'desc')->get();
-        return view('parents.index', compact('parents'));
-        // dd($parents);
+        $customers = Customer::orderBy('name', 'asc')->get();
+        // return CustomerResource::collection($customers);
+        dd($customers);
     }
 
     /**

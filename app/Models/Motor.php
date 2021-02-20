@@ -2,18 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Penyewa;
-use App\Models\service;
-use App\Models\Penjadwalan;
-use App\Models\Pemesanan;
-use App\Models\Perbaikan;
-use App\Models\Faktur;
-use App\Models\Perlengkapan;
 use Illuminate\Database\Eloquent\Model;
 
 class Motor extends Model
 {
-    protected $table = 'motor';
+    protected $table = 'motors';
     protected $fillable = ['id','nama', 'noPlat', 'avatar'];
 
     
@@ -59,5 +52,10 @@ class Motor extends Model
     public function perlengkapan()
     {
         return $this->hasMany(Perlengkapan::class, 'id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer');
     }
 }
